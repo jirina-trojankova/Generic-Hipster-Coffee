@@ -5,7 +5,9 @@
 .counterimg {
     width: 70%;
     padding: 306px 0;
-    background-image: url(../img/counter.img);
+    background-image: url(../img/counter.jpg);
+    background-position: center center;
+    background-size: cover;
 }
 
 .jumbotron h1 {
