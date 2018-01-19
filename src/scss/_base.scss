@@ -1,13 +1,15 @@
-* {
-    font-family: 'Roboto Condensed', sans-serif;
-}
+// * {
+//     font-family: 'Roboto Condensed', sans-serif;
+// }
+
 
 .counterimg {
-    width: 70%;
+    width: 100%;
     padding: 306px 0;
-    background-image: url(../img/counter.img);
+    background-image: url('/img/counter.jpg');
+    background-position: center center;
+    background-size: cover;
 }
-
-.jumbotron h1 {
-    background-color: Red;
+.nav {
+    padding: 4em 0;
 }
