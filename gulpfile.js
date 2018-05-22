@@ -27,11 +27,23 @@ gulp.task('html:copy', function() {
 		.pipe(gulp.dest('dist/'));
 });
 
+// Delete all PHP files
+gulp.task('php:clean', function() {
+	return del('dist/**/*.php', { force: true });
+});
+
+// Copy all PHP files 
+gulp.task('php:copy', function() {
+	return gulp.src('src/**/*.php')
+		.pipe(gulp.dest('dist/'));
+});
+
 // Delete all static files such as images etc.
 gulp.task('static:clean', function() {
 	return del([
 			'dist/**/*', // delete all files
 			'!dist/**/*.html', // except html
+			'!dist/**/*.php', // except php
 			'!dist/**/*.css' // except css
 	], { force: true });
 });
@@ -41,7 +53,7 @@ gulp.task('static:copy', ['static:clean'], function() {
 			.pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['css:compile', 'html:copy', 'static:copy']);
+gulp.task('build', ['css:compile', 'html:copy', 'php:copy', 'static:copy']);
 
 gulp.task('develop', ['build'], function() {
 	gulp.watch('src/scss/*', ['css:compile']); // watch for changes in SCSS

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-ffeempatible" content="IE=edge">
     <title>GHC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
@@ -51,16 +51,16 @@
                 <div class="col-md-8">
                     <ul id="top" class="nav justify-content-md-end justify-content-center">
                         <li>
-                            <a class="nav-link active" href="/">Home</a>
+                            <a class="nav-link" href="index.php?page=home">Home</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="menu.html">Menu</a>
+                            <a class="nav-link" href="index.php?page=menu">Menu</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="coffee.html">Coffee</a>
+                            <a class="nav-link" href="index.php?page=coffee">Coffee</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="story.html">Our Story</a>
+                            <a class="nav-link" href="index.php?page=story">Our Story</a>
                         </li>
                     </ul>
                 </div>
@@ -68,63 +68,41 @@
         </nav>
 
     </header>
-
-    <main class="container">
-
-
-
-        <div class="jumbotron">
-            <h1 class="text-uppercase">generic hipster coffee</h1>
-            <h2 class="text-uppercase">specialty coffee, fresh food & local community.</h2>
-
-            <div class="counterimg">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <h3 class="text-uppercase">opening hours </h3>
-
-                <p>sun - thu: 8 am - 11 pm</p>
-                <p>fri - sat: 8 am - 1 am</p>
-            </div>
-
-            <div class="col-sm-4">
-                <h3 class="text-uppercase">book a table</h3>
-                <p>Call +1 415-321-4567</p>
-            </div>
-
-            <div class="col-sm-4">
-                <h3 class="text-uppercase">address</h3>
-                <p>321 Ivy St.</p>
-                <p>San Francisco, CA 94102</p>
-            </div>
-        </div>
-
-        <img src="img/map.png" alt="Map of the place" width="100%">
-
-    </main>
-
+    <section>
+        <?php
+						if (isset($_GET['page']))
+							$page = $_GET['page'];
+						else
+							$page = 'home';
+						if (preg_match('/^[a-z0-9]+$/', $page))
+						{
+							$included = include('pages/' . $page . '.php');
+							if (!$included)
+								echo('Page couldn\'t be find.');
+						}
+						else
+							echo('Page couldn\'t be find.');
+					?>
+    </section>
     <footer class="text-center bg-dark">
         <div class="container">
             <ul class="nav justify-content-around">
                 <li>
-                    <a href="/">Home</a>
+                    <a href="index.php?page=home">Home</a>
                 </li>
                 <li>
-                    <a href="menu.html">Menu</a>
+                    <a href="index.php?page=menu">Menu</a>
                 </li>
                 <li>
-                    <a href="coffee.html">Coffee</a>
+                    <a href="index.php?page=coffee">Coffee</a>
                 </li>
                 <li>
-                    <a href="coffee.html">Our Story</a>
+                    <a href="index.php?page=story">Our Story</a>
                 </li>
 
             </ul>
 
-
-
+            
             <div>
                 <h4 class="text-success text-uppercase">#hipstermakecoffee</h4>
 
