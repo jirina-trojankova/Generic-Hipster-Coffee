@@ -3,14 +3,22 @@ body {
     font-weight: light;
 }
 
-
 .counterimg {
+    width: 100%;
+    padding: 306px 0;
+    background-image: url('/img/coffee.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.us_img {
     width: 100%;
     padding: 306px 0;
     background-image: url('/img/coffeee.jpg');
     background-position: center center;
     background-size: cover;
 }
+
 .nav {
     padding: 4em 0;
 }
@@ -25,7 +33,6 @@ footer a {
 
 .jumbotron {
     background-color: white;
-
 }
 
 article h2 {

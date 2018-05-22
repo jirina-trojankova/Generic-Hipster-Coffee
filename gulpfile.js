@@ -55,6 +55,7 @@ gulp.task('static:copy', ['static:clean'], function() {
 
 gulp.task('build', ['css:compile', 'html:copy', 'php:copy', 'static:copy']);
 
+//php not included yet
 gulp.task('develop', ['build'], function() {
 	gulp.watch('src/scss/*', ['css:compile']); // watch for changes in SCSS
 	gulp.watch('src/**/*.html', ['html:copy']); // watch for changes in HTML
